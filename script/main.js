@@ -4,8 +4,10 @@ function cekKhodam(event) {
     if (nama === "") {
         alert("Masukkan nama terlebih dahulu!");
     } else {
+        nama = nama.toLowerCase();
+        let rng = new Math.seedrandom(nama);
         let status = ["isi", "kosong"];
-        const randomStatus = Math.floor(Math.random() * status.length);
+        const randomStatus = Math.floor(rng() * status.length);
         if (randomStatus === 0) {
             let khodam = [
                 "Sumpit Gacoan",
@@ -16,7 +18,7 @@ function cekKhodam(event) {
                 "Nyamuk Gendut",
                 "Pocong Ngantuk",
             ];
-            const random = Math.floor(Math.random() * khodam.length);
+            const random = Math.floor(rng() * khodam.length);
             $("#result").html(`${nama.toUpperCase()} - ${khodam[random]}`);
             $("#cek").val("");
         } else {
